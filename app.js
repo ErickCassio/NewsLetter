@@ -36,9 +36,8 @@ app.post("/", (req,res) => {
     //Prepara o POST que será feito na API do MailChimp
     const options = {
         method: "POST",
-        auth: "erick:f4a0d9a104ac43565770af36545d54b8-us21" //Método de autenticação da API do MAILCHIMP
+        auth: "erick:" + process.env.MAILCHIMP_API_KEY //Método de autenticação da API do MAILCHIMP
     }
-    
     //Guardaremos esse request numa const para podermos usá-la posteriormente
     const request = https.request(url, options, (response) => {
         if (response.statusCode === 200) {
